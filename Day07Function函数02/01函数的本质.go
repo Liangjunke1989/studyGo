@@ -25,5 +25,5 @@ func main() {
 	mFunc = getNum     //  函数赋值mFunc; 如果getNum()是将函数的值赋值给mFunc。
 }
 func getNum(i int) {
-
+	fmt.Println(i)
 }
