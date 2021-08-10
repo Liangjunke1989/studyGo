@@ -45,6 +45,24 @@ func testFunc02(ani []interface{}) { //匿名空接口
 		}
 	}
 }
+
+//可变参为匿名空接口类型
+func testFunc03(ani ...interface{}) { //匿名空接口
+	// ani []interface{}与ani ...interface{}的区别？
+	for i := 0; i < len(ani); i++ {
+		fmt.Println("第", i+1, "个数据")
+		switch ins := ani[i].(type) {
+		case Cat01:
+			fmt.Println("\tcat对象：", ins.name, ins.age)
+		case Person01:
+			fmt.Println("\tperson对象", ins.name, ins.sex)
+		case int:
+			fmt.Println("\tint类型", ins)
+		case string:
+			fmt.Println("\tstring类型", ins)
+		}
+	}
+}
 func main() {
 	/*
 		空接口：
@@ -83,6 +101,8 @@ func main() {
 		创建一个数组，存储5个Animal，设计一个函数，接受这个数组作为参数。
 		打印输出数组中每个动物的eat(),sleep(),如果是猫显示名字，如果是狗显示color。
 	*/
-	testFunc02(slice1)
+	//testFunc02(slice1)
+	//testFunc03(a1,a2,a3,a4)
+	testFunc03(slice1...)
 
 }
