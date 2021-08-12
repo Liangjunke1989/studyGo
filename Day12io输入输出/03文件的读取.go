@@ -124,6 +124,7 @@ func main() {
 	{
 		for i := 0; ; {
 			n, err = file01.Read(bytes) //返回的是读取的个数和错误                  //----------------->文件读取的核心
+			// file01.ReadAt(bytes,4)
 			i++
 			if n == 0 || err == io.EOF {
 				fmt.Printf("在第%d次，文件读取完毕！", i)
