@@ -86,6 +86,7 @@ func copyFile2(src, dest string) (int64, error) {
 	defer fmt.Println("所有文件关闭成功！")
 	defer srcfile.Close() //defer的使用？在有return的情况下
 	defer destFile.Close()
+
 	defer fmt.Println("所有文件开始关闭！")
 	n, err3 := io.Copy(destFile, srcfile)
 	return n, err3
