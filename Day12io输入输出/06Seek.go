@@ -20,15 +20,34 @@ func main() {
 	*/
 	file, _ := os.OpenFile("./TestDir/test.txt", os.O_RDWR, os.ModePerm)
 	bs := []byte{0}
-	file.Seek(10, 0) //从哪便宜
-	_, err := file.Read(bs)
+	fmt.Println("------------------------1.Seek练习一--------------------------------------")
+	_, err := file.Seek(10, 0) //从哪偏移
+	//文件读取
+	_, err = file.Read(bs)
 	if err != nil {
 		fmt.Println("文件读取错误！", err.Error())
 	} else {
-		fmt.Println(string(bs))
+		fmt.Println(string(bs)) //j
 	}
+	fmt.Println("------------------------2.Seek练习二--------------------------------------")
 	_, err2 := file.Seek(0, 2)
-	fmt.Println(err2.Error())
-	file.WriteString("lolololo")
+	if err2 != nil {
+		fmt.Println("文件光标设置有误！", err2.Error())
+	} else {
+		//文件写入
+		_, err = file.WriteString("lolololo")
+		if err != nil {
+			fmt.Println(err.Error())
+		} else {
+			fmt.Println("文件写出完成！！！")
+		}
+	}
+	//文件关闭
+	err = file.Close()
+	if err != nil {
+		fmt.Println("文件关闭有误！！", err.Error())
+	} else {
+		fmt.Println("文件成功关闭！！")
+	}
 	fmt.Println("-----------------------------练习一：断点续传------------------------------------------------------")
 }
