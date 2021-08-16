@@ -35,7 +35,7 @@ func main() {
 	{
 		////第一次读取
 		////从file01对应的文件中读取最多len(bytes)个数据,存入到bytes数组中。
-		//n, err02 := file01.Read(bytes) //返回的是读取的个数和错误           ----------------->文件读取的核心
+		//n, err02 := file01.Read(bytes) //返回的是读取的个数和错误           ----------------->文件读取的核心:万事万物皆二进制
 		//if err02 != nil {
 		//	fmt.Println("--------第一次读取---------")
 		//	fmt.Println("文件读取有误！", err02.Error())
@@ -124,6 +124,7 @@ func main() {
 	{
 		for i := 0; ; {
 			n, err = file01.Read(bytes) //返回的是读取的个数和错误                  //----------------->文件读取的核心
+			// file01.ReadAt(bytes,4)
 			i++
 			if n == 0 || err == io.EOF {
 				fmt.Printf("在第%d次，文件读取完毕！", i)
