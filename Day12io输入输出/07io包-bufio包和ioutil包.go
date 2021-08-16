@@ -14,7 +14,8 @@ func main() {
 			Reader接口，Writ接口
 			io.copy()
 		bufio包：																	——————————核心包————————————
-			buffer缓存
+			buffer缓存：
+				将一个字节数组作为缓冲区，内存中。
 			将io包下的Reader,Write对象进行封装，带缓存的封装，提供读写效率。
 			将io包下的Reader和Write进一步封装，带缓存的Reader和Write，实现高效的读和写。
 			ReadBytes()
@@ -91,7 +92,7 @@ func main() {
 	}
 	fmt.Println("-------------------------------2.io/bufio包：执行更高效--------------------------------------------")
 	{
-		//1. ReadLine() 和 ReadBytes()
+		//1. ReadLine() 和 ReadBytes()，一般更倾向于ReadBytes()。ReadLine()一般利用ReadString()代替。
 		{
 			//file, _ := os.Open("./TestDir/test3.txt")        // file可以被看作io包下Reader和Write的实现。
 			//rd := bufio.NewReaderSize(file, 1024)		       // 构建带缓存的reader对象：bufio.Reader
@@ -135,6 +136,10 @@ func main() {
 			} else {
 				fmt.Println("文件已经成功关闭！！")
 			}
+		}
+		//3.Flush()更新
+		{
+
 		}
 	}
 }
