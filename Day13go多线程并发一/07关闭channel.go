@@ -23,6 +23,15 @@ func main() {
 						最后需要关闭通道，用于通知接收方没有数据了
 					接收方，不停的读取数据
 						死循环，读取数据，根据ok的值判断，是否已经结束。
+					for{
+						data,ok:=<-chan
+						if !ok{
+							break
+						}
+					}
+					for data :=range chan{ //直到发送方关闭通道为止，for range关闭
+						data
+					}
 	*/
 	ch1 := make(chan int)
 	//发送数据
