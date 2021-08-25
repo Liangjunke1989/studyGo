@@ -30,10 +30,11 @@ func main() {
 		go func(j int) {
 			fmt.Printf("goroutine %d,-----尝试读锁定...\n", j)
 			rwm.RLock()
-			fmt.Printf("goroutine %d,-----已经读锁定了...\n", j)
+			fmt.Printf("\tgoroutine %d,-----已经读锁定了...\n", j)
 			time.Sleep(5 * time.Second)
-			fmt.Printf("\tgoroutine %d,尝试读解锁...\n", j)
+			fmt.Printf("\t\tgoroutine %d,尝试读解锁...\n", j)
 			rwm.RUnlock()
+			fmt.Printf("\t\t\toroutine %d,已经读解锁...\n", j)
 		}(i)
 	}
 	time.Sleep(2 * time.Second)

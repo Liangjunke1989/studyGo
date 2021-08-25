@@ -36,7 +36,6 @@ func main() {
 	//mutex.Unlock()//报错了！unlock of unlocked mutex
 	//fmt.Println("main,想再解锁mutex")
 	time.Sleep(2 * time.Second)
-
 	fmt.Println("main...over...")
 
 }

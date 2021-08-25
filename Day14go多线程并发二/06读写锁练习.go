@@ -25,7 +25,7 @@ func main() {
 		}(i)
 	}
 
-	for i := 1; i <= 5; i++ {
+	for i := 6; i <= 10; i++ {
 		//write
 		go func(j int) {
 			defer wg001.Done()
